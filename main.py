@@ -25,10 +25,11 @@ def salvar_valor():
     linha = len(valores) + 1
     coluna_data = get_column_letter(1)
     coluna_valor = get_column_letter(2)
+    #salva a data atual na planilha na nova linha
     sheet.cell(row=linha, column=1, value=date.today().strftime("%d-%m-%y"))
     sheet.cell(row=linha, column=2, value=valor_dia)
     
-
+#função responsável por extrair dados de uma planilha, organizá-los e gerar dois gráficos
 def plotar_grafico():
     global FigureCanvasTkAgg
     
@@ -45,7 +46,7 @@ def plotar_grafico():
         else:
             dados_mensais[mes_ano] = [valor]
             
-    #cria um gráfico e barras do matplotlib 
+    #cria um gráfico de barras do matplotlib 
     fig = plt.Figure(figsize=(12, 6), dpi=80)
     ax_barras = fig.add_subplot(121)
     ax_pie = fig.add_subplot(122)
